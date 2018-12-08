@@ -89,3 +89,5 @@ class Generator
   end
 
 end
+test = Generator.new
+puts test.get_birthday

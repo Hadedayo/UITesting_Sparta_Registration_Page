@@ -8,9 +8,8 @@ describe 'Testing the Sparta Global Registration Page' do
     @firstname = @generate.firstname
     @lastname = @generate.lastname
     @age = @generate.get_user_age
-    @birthday = '08-12-2018'
-    @text = 'Lorem ipsum dolor sit amet'
-    @email = @generate.email
+    @birthday = '2005-12-08'
+    @text = 'Lorem ipsum dolor'
   end
 
   it "should land on the registration page" do
@@ -34,7 +33,7 @@ describe 'Testing the Sparta Global Registration Page' do
 
   it "should accept birthday" do
     @registration_service.input_date_of_birth(@birthday)
-    expect(@registration_service.get_date_of_birth). to eq @birthday
+    expect(@registration_service.get_date_of_birth).to eq @birthday
   end
 
   it "should select a gender" do

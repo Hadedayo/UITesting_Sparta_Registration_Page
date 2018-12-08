@@ -42,11 +42,11 @@ class Registration_Selenium
   end
 
   def input_date_of_birth(text)
-    @chrome_driver.find_element(:name, 'dob').send_keys(text)
+    @chrome_driver.find_element(:css, 'input[type="date"]').send_keys(text)
   end
 
   def get_date_of_birth
-    @chrome_driver.find_element(:name, 'dob').attribute('value')
+    @chrome_driver.find_element(:css, 'input[type="date"]').attribute('value')
   end
 
   def select_gender
@@ -54,7 +54,7 @@ class Registration_Selenium
   end
 
   def is_gender_selected
-    @chrome_driver.find_element(:css, 'label[for=customRadioInline2]').selected?
+    @chrome_driver.find_element(:css, 'label[for=customRadioInline2]').enabled?
   end
 
   def input_degree(text)
@@ -110,8 +110,3 @@ class Registration_Selenium
   end
 
 end
-# test = Registration_Selenium.new
-# test.visit_registration_site
-# sleep 2
-# test.input_age('22')
-# sleep 3
