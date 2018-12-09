@@ -2,11 +2,13 @@ require 'selenium-webdriver'
 
 class Registration_Selenium
 
-  attr_accessor :registration_url
+  attr_accessor :registration_url, :signed_up_url
+
 
   def initialize
     @chrome_driver = Selenium::WebDriver.for :chrome
     @registration_url = 'https://crispyjourney.herokuapp.com/'
+    @signed_up_url = "https://crispyjourney.herokuapp.com/registration_complete?dob=2009-12-08&customRadioInline1=on&cv=Abinu.doc&streamRadioInline1=on"
   end
 
   def visit_registration_site
@@ -181,12 +183,13 @@ class Registration_Selenium
     @chrome_driver.find_element(:id, 'terms').enabled?
   end
 
-  # def slide_experience
-  #   @chrome_driver.find_element(:id,'experienceSlider').text
-  # end
-  #
-  # def get_slide_experience
-  #   @chrome_driver.find_element(:id,'experienceSlider').enabled?
-  # end
+  def get_slide_experience
+    @chrome_driver.find_element(:id,'experienceSlider').text
+  end
+
+  def click_sign_in
+    @chrome_driver.find_element(:css, 'button[type="submit"]').click
+  end
+
 
 end
