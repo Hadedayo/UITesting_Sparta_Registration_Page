@@ -149,12 +149,12 @@ class Registration_Selenium
     @chrome_driver.find_element(:css, '[type="URL"]').attribute('value')
   end
 
-  # def input_upload_file('C:\Users\Tech-W106\JadenSmith.docx')
-  #   @chrome_driver.find_element(:css, 'label[for=uploadCV]').send_keys('C:\Users\Tech-W106\JadenSmith.docx')
-  # end
+  def input_upload_file(text)
+    @chrome_driver.find_element(:css, '[type="file"]').send_keys(text)
+  end
 
   def get_input_file
-    @chrome_driver.find_element(:css,'label[for=uploadCV]').attribute('value')
+    @chrome_driver.find_element(:css,'[type="file"]').attribute('value')
   end
 
   def input_SDET_stream
@@ -181,12 +181,12 @@ class Registration_Selenium
     @chrome_driver.find_element(:id, 'terms').enabled?
   end
 
-  def slide_experience
-    @chrome_driver.find_element(:id,'experienceSlider').text
-  end
-
-  def get_slide_experience
-    @chrome_driver.find_element(:id, 'experienceSlider').enabled?
-  end
+  # def slide_experience
+  #   @chrome_driver.find_element(:id,'experienceSlider').text
+  # end
+  #
+  # def get_slide_experience
+  #   @chrome_driver.find_element(:id,'experienceSlider').enabled?
+  # end
 
 end

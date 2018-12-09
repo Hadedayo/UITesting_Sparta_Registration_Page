@@ -10,7 +10,7 @@ describe 'Testing the Sparta Global Registration Page' do
     @age = @generate.get_user_age
     @birthday = '2012-10-12'
     @text = 'Lorem ipsum dolor'
-    @file = "C:\\Users\\Tech-W106\\Jaden Smith.docx"
+    @file = 'C:\Users\Tech-W106\Abinu.doc'
   end
 
   it "should land on the registration page" do
@@ -98,12 +98,12 @@ describe 'Testing the Sparta Global Registration Page' do
     expect(@registration_service.get_input_linkedIn_URL).to eq @text
   end
 
-#   it 'should be able to upload file' do
-#     @registration_service.input_upload_file('C:\Users\Tech-W106\JadenSmith.docx')
-#     sleep 5
-#     expect(@registration_service.get_input_file).to eq 'C:\Users\Tech-W106\JadenSmith.docx'
-#     sleep 5
-# end
+  it 'should be able to upload file' do
+    @registration_service.input_upload_file(@file)
+    sleep 5
+    expect(@registration_service.get_input_file).to eq @file
+    sleep 5
+end
 
   it 'should accept SDET for stream' do
     @registration_service.input_SDET_stream
@@ -120,9 +120,9 @@ describe 'Testing the Sparta Global Registration Page' do
     expect(@registration_service.get_input_terms_conditions).to be true
   end
 
-  it 'should slide the experince from 0-100' do
-    @registration_service.slide_experience
-    expect(@registration_service.get_slide_experience).to be_between(0,100).inclusive
-  end
+  # it 'should slide the experince from 0-100' do
+  #   @registration_service.slide_experience
+  #   expect(@registration_service.get_slide_experience).to be_between(0,100).inclusive
+  # end
 
 end
