@@ -190,15 +190,8 @@ class Registration_Selenium
    @chrome_driver.find_element(:id,'experienceSlider').text
  end
 
- def get_slide_experience
-   @chrome_driver.find_element(:id, 'experienceSlider').enabled?
+ def get_slide_experience(text)
+   @chrome_driver.find_element(:id, 'experienceSlider').send_keys(text)
  end
 
 end
-test = Registration_Selenium.new
-puts test.visit_registration_site
-sleep 3
-puts test.input_date_of_birth('03052017')
-sleep 3
-puts test.get_date_of_birth
-puts test.get_date_of_birth.split('-').reverse!.join
