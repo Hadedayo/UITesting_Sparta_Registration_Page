@@ -2,11 +2,13 @@ require 'selenium-webdriver'
 
 class Registration_Selenium
 
-  attr_accessor :registration_url
+  attr_accessor :registration_url, :signed_up_url
+
 
   def initialize
     @chrome_driver = Selenium::WebDriver.for :chrome
     @registration_url = 'https://crispyjourney.herokuapp.com/'
+    @signed_up_url = "https://crispyjourney.herokuapp.com/registration_complete?dob=2009-12-08&customRadioInline1=on&cv=Abinu.doc&streamRadioInline1=on"
   end
 
   def visit_registration_site
@@ -149,12 +151,12 @@ class Registration_Selenium
     @chrome_driver.find_element(:css, '[type="URL"]').attribute('value')
   end
 
-  # def input_upload_file('C:\Users\Tech-W106\JadenSmith.docx')
-  #   @chrome_driver.find_element(:css, 'label[for=uploadCV]').send_keys('C:\Users\Tech-W106\JadenSmith.docx')
-  # end
+  def input_upload_file(text)
+    @chrome_driver.find_element(:css, '[type="file"]').send_keys(text)
+  end
 
   def get_input_file
-    @chrome_driver.find_element(:css,'label[for=uploadCV]').attribute('value')
+    @chrome_driver.find_element(:css,'[type="file"]').attribute('value')
   end
 
   def input_SDET_stream
@@ -181,12 +183,13 @@ class Registration_Selenium
     @chrome_driver.find_element(:id, 'terms').enabled?
   end
 
-  def slide_experience
+  def get_slide_experience
     @chrome_driver.find_element(:id,'experienceSlider').text
   end
 
-  def get_slide_experience
-    @chrome_driver.find_element(:id, 'experienceSlider').enabled?
+  def click_sign_in
+    @chrome_driver.find_element(:css, 'button[type="submit"]').click
   end
+
 
 end

@@ -8,9 +8,11 @@ describe 'Testing the Sparta Global Registration Page' do
     @firstname = @generate.firstname
     @lastname = @generate.lastname
     @age = @generate.get_user_age
-    @birthday = '2012-10-12'
+    @date_of_birth = '08122009'
     @text = 'Lorem ipsum dolor'
-    @file = "C:\\Users\\Tech-W106\\Jaden Smith.docx"
+    @email = "abinu_siv@hotmail.com"
+    @linkedIn = "https://www.linkedin.com/in/abinu-sivabalan-5bb32413b/"
+    @file = 'C:\Users\Tech-W106\Abinu.doc'
   end
 
   it "should land on the registration page" do
@@ -33,8 +35,8 @@ describe 'Testing the Sparta Global Registration Page' do
   end
 
   it "should accept birthday" do
-    @registration_service.input_date_of_birth(@birthday)
-    expect(@registration_service.get_date_of_birth).to eq @birthday
+    @registration_service.input_date_of_birth(@date_of_birth)
+    expect(@registration_service.get_date_of_birth.split('-').reverse!.join).to eq @date_of_birth
   end
 
   it "should select a gender" do
@@ -78,8 +80,8 @@ describe 'Testing the Sparta Global Registration Page' do
   end
 
   it "should return input email" do
-    @registration_service.input_email(@text)
-    expect(@registration_service.get_input_email).to eq @text
+    @registration_service.input_email(@email)
+    expect(@registration_service.get_input_email).to eq @email
   end
 
   it 'should return input skills' do
@@ -94,16 +96,14 @@ describe 'Testing the Sparta Global Registration Page' do
   end
 
   it 'should return linkedIn URL' do
-    @registration_service.input_linkedIn_URL(@text)
-    expect(@registration_service.get_input_linkedIn_URL).to eq @text
+    @registration_service.input_linkedIn_URL(@linkedIn)
+    expect(@registration_service.get_input_linkedIn_URL).to eq @linkedIn
   end
 
-#   it 'should be able to upload file' do
-#     @registration_service.input_upload_file('C:\Users\Tech-W106\JadenSmith.docx')
-#     sleep 5
-#     expect(@registration_service.get_input_file).to eq 'C:\Users\Tech-W106\JadenSmith.docx'
-#     sleep 5
-# end
+  it 'should be able to upload file' do
+    @registration_service.input_upload_file(@file)
+    expect(@registration_service.get_input_file).to eq @file
+  end
 
   it 'should accept SDET for stream' do
     @registration_service.input_SDET_stream
@@ -121,8 +121,14 @@ describe 'Testing the Sparta Global Registration Page' do
   end
 
   it 'should slide the experince from 0-100' do
-    @registration_service.slide_experience
-    expect(@registration_service.get_slide_experience).to be_between(0,100).inclusive
+    @registration_service.get_slide_experience
+    expect(@registration_service.get_slide_experience.to_i).to be_between(0,100).inclusive
+  end
+
+  it 'should sign in the application' do
+    @registration_service.click_sign_in
+    expect(@registration_service.get_current_url).to eq @registration_service.signed_up_url
+    sleep 5
   end
 
 end
