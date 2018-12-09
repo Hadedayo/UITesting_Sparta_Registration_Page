@@ -118,11 +118,11 @@ class Registration_Selenium
   end
 
   def input_email(text)
-    @chrome_driver.find_element(:id, 'exampleFormControlInput1').send_keys(text)
+    @chrome_driver.find_element(:css,'[type="email"]').send_keys(text)
   end
 
   def get_input_email
-    @chrome_driver.find_element(:id, 'exampleFormControlInput1').attribute('value')
+    @chrome_driver.find_element(:css,'[type="email"]').attribute('value')
   end
 
   def input_skills(text)
@@ -134,11 +134,11 @@ class Registration_Selenium
   end
 
   def input_phone_number(text)
-    @chrome_driver.find_element(:css,'[placeholder="Enter phone number"]').send_keys(text)
+    @chrome_driver.find_element(:css,'[type="tel"]').send_keys(text)
   end
 
   def get_input_phone_number
-    @chrome_driver.find_element(:css,'[placeholder="Enter phone number"]').attribute('value')
+    @chrome_driver.find_element(:css,'[type="tel"]').attribute('value')
   end
 
   def input_linkedIn_URL(text)
@@ -148,4 +148,21 @@ class Registration_Selenium
   def get_input_linkedIn_URL
     @chrome_driver.find_element(:css, '[type="URL"]').attribute('value')
   end
+
+  def input_SDET_stream
+    @chrome_driver.find_element(:css, 'label[for=streamRadioInline1]' ).click
+  end
+
+  def get_input_SDET_stream
+    @chrome_driver.find_element(:css, 'label[for=streamRadioInline1]' ).enabled?
+  end
+
+  def input_DevOps_stream
+    @chrome_driver.find_element(:css, 'label[for=streamRadioInline2]' ).click
+  end
+
+  def get_input_DevOps_stream
+    @chrome_driver.find_element(:css, 'label[for=streamRadioInline2]' ).enabled?
+  end
+
 end

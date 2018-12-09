@@ -89,7 +89,6 @@ describe 'Testing the Sparta Global Registration Page' do
 
   it 'should return phone number' do
     @registration_service.input_phone_number(@text)
-    sleep 5
     expect(@registration_service.get_input_phone_number).to eq @text
   end
 
@@ -97,4 +96,16 @@ describe 'Testing the Sparta Global Registration Page' do
     @registration_service.input_linkedIn_URL(@text)
     expect(@registration_service.get_input_linkedIn_URL).to eq @text
   end
+
+  it 'should accept SDET for stream' do
+    @registration_service.input_SDET_stream
+    expect(@registration_service.get_input_SDET_stream).to be true
+  end
+
+  it 'should accept DevOps for stream' do
+    @registration_service.input_DevOps_stream
+    expect(@registration_service.get_input_DevOps_stream).to be true
+  end
+
+
 end
