@@ -109,4 +109,84 @@ class Registration_Selenium
     @chrome_driver.find_element(:id, 'inputCounty').text.include?('Bristol')
   end
 
+  def input_postcode(text)
+    @chrome_driver.find_element(:id, 'inputPostcode').send_keys(text)
+  end
+
+  def get_postcode
+    @chrome_driver.find_element(:id, 'inputPostcode').attribute('value')
+  end
+
+  def input_email(text)
+    @chrome_driver.find_element(:css,'[type="email"]').send_keys(text)
+  end
+
+  def get_input_email
+    @chrome_driver.find_element(:css,'[type="email"]').attribute('value')
+  end
+
+  def input_skills(text)
+    @chrome_driver.find_element(:id, 'exampleFormControlTextarea1').send_keys(text)
+  end
+
+  def get_input_skills
+    @chrome_driver.find_element(:id, 'exampleFormControlTextarea1').attribute('value')
+  end
+
+  def input_phone_number(text)
+    @chrome_driver.find_element(:css,'[type="tel"]').send_keys(text)
+  end
+
+  def get_input_phone_number
+    @chrome_driver.find_element(:css,'[type="tel"]').attribute('value')
+  end
+
+  def input_linkedIn_URL(text)
+    @chrome_driver.find_element(:css,'[type="url"]').send_keys(text)
+  end
+
+  def get_input_linkedIn_URL
+    @chrome_driver.find_element(:css, '[type="URL"]').attribute('value')
+  end
+
+  # def input_upload_file('C:\Users\Tech-W106\JadenSmith.docx')
+  #   @chrome_driver.find_element(:css, 'label[for=uploadCV]').send_keys('C:\Users\Tech-W106\JadenSmith.docx')
+  # end
+
+  def get_input_file
+    @chrome_driver.find_element(:css,'label[for=uploadCV]').attribute('value')
+  end
+
+  def input_SDET_stream
+    @chrome_driver.find_element(:css, 'label[for=streamRadioInline1]' ).click
+  end
+
+  def get_input_SDET_stream
+    @chrome_driver.find_element(:css, 'label[for=streamRadioInline1]' ).enabled?
+  end
+
+  def input_DevOps_stream
+    @chrome_driver.find_element(:css, 'label[for=streamRadioInline2]' ).click
+  end
+
+  def get_input_DevOps_stream
+    @chrome_driver.find_element(:css, 'label[for=streamRadioInline2]' ).enabled?
+  end
+
+  def input_terms_conditions
+    @chrome_driver.find_element(:id, 'terms').click
+  end
+
+  def get_input_terms_conditions
+    @chrome_driver.find_element(:id, 'terms').enabled?
+  end
+
+  def slide_experience
+    @chrome_driver.find_element(:id,'experienceSlider').text
+  end
+
+  def get_slide_experience
+    @chrome_driver.find_element(:id, 'experienceSlider').enabled?
+  end
+
 end
