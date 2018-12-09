@@ -149,6 +149,14 @@ class Registration_Selenium
     @chrome_driver.find_element(:css, '[type="URL"]').attribute('value')
   end
 
+  # def input_upload_file('C:\Users\Tech-W106\JadenSmith.docx')
+  #   @chrome_driver.find_element(:css, 'label[for=uploadCV]').send_keys('C:\Users\Tech-W106\JadenSmith.docx')
+  # end
+
+  def get_input_file
+    @chrome_driver.find_element(:css,'label[for=uploadCV]').attribute('value')
+  end
+
   def input_SDET_stream
     @chrome_driver.find_element(:css, 'label[for=streamRadioInline1]' ).click
   end
@@ -163,6 +171,22 @@ class Registration_Selenium
 
   def get_input_DevOps_stream
     @chrome_driver.find_element(:css, 'label[for=streamRadioInline2]' ).enabled?
+  end
+
+  def input_terms_conditions
+    @chrome_driver.find_element(:id, 'terms').click
+  end
+
+  def get_input_terms_conditions
+    @chrome_driver.find_element(:id, 'terms').enabled?
+  end
+
+  def slide_experience
+    @chrome_driver.find_element(:id,'experienceSlider').text
+  end
+
+  def get_slide_experience
+    @chrome_driver.find_element(:id, 'experienceSlider').enabled?
   end
 
 end

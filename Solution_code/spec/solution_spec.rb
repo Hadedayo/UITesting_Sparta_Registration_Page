@@ -8,8 +8,9 @@ describe 'Testing the Sparta Global Registration Page' do
     @firstname = @generate.firstname
     @lastname = @generate.lastname
     @age = @generate.get_user_age
-    @birthday = '2009-12-08'
+    @birthday = '2012-10-12'
     @text = 'Lorem ipsum dolor'
+    @file = "C:\\Users\\Tech-W106\\Jaden Smith.docx"
   end
 
   it "should land on the registration page" do
@@ -33,8 +34,7 @@ describe 'Testing the Sparta Global Registration Page' do
 
   it "should accept birthday" do
     @registration_service.input_date_of_birth(@birthday)
-    puts methods
-    expect(@registration_service.get_date_of_birth).to eq (@birthday)
+    expect(@registration_service.get_date_of_birth).to eq @birthday
   end
 
   it "should select a gender" do
@@ -90,12 +90,20 @@ describe 'Testing the Sparta Global Registration Page' do
   it 'should return phone number' do
     @registration_service.input_phone_number(@text)
     expect(@registration_service.get_input_phone_number).to eq @text
+    sleep 3
   end
 
   it 'should return linkedIn URL' do
     @registration_service.input_linkedIn_URL(@text)
     expect(@registration_service.get_input_linkedIn_URL).to eq @text
   end
+
+#   it 'should be able to upload file' do
+#     @registration_service.input_upload_file('C:\Users\Tech-W106\JadenSmith.docx')
+#     sleep 5
+#     expect(@registration_service.get_input_file).to eq 'C:\Users\Tech-W106\JadenSmith.docx'
+#     sleep 5
+# end
 
   it 'should accept SDET for stream' do
     @registration_service.input_SDET_stream
@@ -107,5 +115,14 @@ describe 'Testing the Sparta Global Registration Page' do
     expect(@registration_service.get_input_DevOps_stream).to be true
   end
 
+  it 'should accept agree to terms and conditions' do
+    @registration_service.input_terms_conditions
+    expect(@registration_service.get_input_terms_conditions).to be true
+  end
+
+  it 'should slide the experince from 0-100' do
+    @registration_service.slide_experience
+    expect(@registration_service.get_slide_experience).to be_between(0,100).inclusive
+  end
 
 end
