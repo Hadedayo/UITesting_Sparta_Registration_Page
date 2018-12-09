@@ -8,7 +8,7 @@ describe 'Testing the Sparta Global Registration Page' do
     @firstname = @generate.firstname
     @lastname = @generate.lastname
     @age = @generate.get_user_age
-    @birthday = '08-12-2009'
+    @birthday = '2009-12-08'
     @text = 'Lorem ipsum dolor'
   end
 
@@ -72,4 +72,29 @@ describe 'Testing the Sparta Global Registration Page' do
     expect(@registration_service.is_county_selected).to be true
   end
 
+  it "should input postcode" do
+    @registration_service.input_postcode(@text)
+    expect(@registration_service.get_postcode).to eq @text
+  end
+
+  it "should return input email" do
+    @registration_service.input_email(@text)
+    expect(@registration_service.get_input_email).to eq @text
+  end
+
+  it 'should return input skills' do
+    @registration_service.input_skills(@text)
+    expect(@registration_service.get_input_skills).to eq @text
+  end
+
+  it 'should return phone number' do
+    @registration_service.input_phone_number(@text)
+    sleep 5
+    expect(@registration_service.get_input_phone_number).to eq @text
+  end
+
+  it 'should return linkedIn URL' do
+    @registration_service.input_linkedIn_URL(@text)
+    expect(@registration_service.get_input_linkedIn_URL).to eq @text
+  end
 end

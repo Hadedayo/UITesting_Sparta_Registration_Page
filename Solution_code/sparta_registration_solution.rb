@@ -109,4 +109,43 @@ class Registration_Selenium
     @chrome_driver.find_element(:id, 'inputCounty').text.include?('Bristol')
   end
 
+  def input_postcode(text)
+    @chrome_driver.find_element(:id, 'inputPostcode').send_keys(text)
+  end
+
+  def get_postcode
+    @chrome_driver.find_element(:id, 'inputPostcode').attribute('value')
+  end
+
+  def input_email(text)
+    @chrome_driver.find_element(:id, 'exampleFormControlInput1').send_keys(text)
+  end
+
+  def get_input_email
+    @chrome_driver.find_element(:id, 'exampleFormControlInput1').attribute('value')
+  end
+
+  def input_skills(text)
+    @chrome_driver.find_element(:id, 'exampleFormControlTextarea1').send_keys(text)
+  end
+
+  def get_input_skills
+    @chrome_driver.find_element(:id, 'exampleFormControlTextarea1').attribute('value')
+  end
+
+  def input_phone_number(text)
+    @chrome_driver.find_element(:css,'[placeholder="Enter phone number"]').send_keys(text)
+  end
+
+  def get_input_phone_number
+    @chrome_driver.find_element(:css,'[placeholder="Enter phone number"]').attribute('value')
+  end
+
+  def input_linkedIn_URL(text)
+    @chrome_driver.find_element(:css,'[type="url"]').send_keys(text)
+  end
+
+  def get_input_linkedIn_URL
+    @chrome_driver.find_element(:css, '[type="URL"]').attribute('value')
+  end
 end
