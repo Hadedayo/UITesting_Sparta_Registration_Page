@@ -8,8 +8,10 @@ describe 'Testing the Sparta Global Registration Page' do
     @firstname = @generate.firstname
     @lastname = @generate.lastname
     @age = @generate.get_user_age
-    @birthday = '08-12-2009'
+    @date_of_birth = '08122009'
     @text = 'Lorem ipsum dolor'
+    @file = "C:\\Users\\Tech-W103\\Jaden Smith.docx"
+    @y = @registration_service.get_date_of_birth
   end
 
   it "should land on the registration page" do
@@ -31,10 +33,9 @@ describe 'Testing the Sparta Global Registration Page' do
     expect(@registration_service.get_age).to eq @age.to_s
   end
 
-  it "should accept birthday" do
-    @registration_service.input_date_of_birth(@birthday)
-    puts methods
-    expect(@registration_service.get_date_of_birth).to eq (@birthday)
+  it "should accept date of birth" do
+    @registration_service.input_date_of_birth(@date_of_birth)
+    expect(@registration_service.get_date_of_birth.split('-').reverse!.join).to eq (@date_of_birth)
   end
 
   it "should select a gender" do
@@ -70,6 +71,59 @@ describe 'Testing the Sparta Global Registration Page' do
   it "should select a County" do
     @registration_service.select_county
     expect(@registration_service.is_county_selected).to be true
+  end
+
+  it "should input postcode" do
+    @registration_service.input_postcode(@text)
+    expect(@registration_service.get_postcode).to eq @text
+  end
+
+  it "should return input email" do
+    @registration_service.input_email(@text)
+    expect(@registration_service.get_input_email).to eq @text
+  end
+
+  it 'should return input skills' do
+    @registration_service.input_skills(@text)
+    expect(@registration_service.get_input_skills).to eq @text
+  end
+
+  it 'should return phone number' do
+    @registration_service.input_phone_number(@text)
+    expect(@registration_service.get_input_phone_number).to eq @text
+    sleep 3
+  end
+
+  it 'should return linkedIn URL' do
+    @registration_service.input_linkedIn_URL(@text)
+    expect(@registration_service.get_input_linkedIn_URL).to eq @text
+  end
+
+  # it 'should be able to upload file' do
+  #   @registration_service.input_upload_file
+  #   sleep 3
+    # expect(@registration_service.get_input_file).to eq 'C:\Users\Tech-W106\JadenSmith.docx'
+    # sleep 5
+  #end
+
+  it 'should accept SDET for stream' do
+    @registration_service.input_SDET_stream
+    expect(@registration_service.get_input_SDET_stream).to be true
+  end
+
+  it 'should accept DevOps for stream' do
+    @registration_service.input_DevOps_stream
+    expect(@registration_service.get_input_DevOps_stream).to be true
+  end
+
+  it 'should accept agree to terms and conditions' do
+    @registration_service.input_terms_conditions
+    expect(@registration_service.get_input_terms_conditions).to be true
+  end
+
+  it 'should slide the experince from 0-100' do
+    @registration_service.slide_experience
+    expect(@registration_service.get_slide_experience).to be_between(0,100).inclusive
   end
 
 end
