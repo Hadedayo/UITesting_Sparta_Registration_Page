@@ -98,12 +98,12 @@ describe 'Testing the Sparta Global Registration Page' do
     expect(@registration_service.get_input_linkedIn_URL).to eq @text
   end
 
-  # it 'should be able to upload file' do
-  #   @registration_service.input_upload_file
-  #   sleep 3
-    # expect(@registration_service.get_input_file).to eq 'C:\Users\Tech-W106\JadenSmith.docx'
-    # sleep 5
-  #end
+  it 'should be able to upload file' do
+    @registration_service.input_upload_file
+    sleep 3
+    expect(@registration_service.get_input_file).to eq 'C:\Users\Tech-W106\JadenSmith.docx'
+    sleep 5
+  end
 
   it 'should accept SDET for stream' do
     @registration_service.input_SDET_stream
