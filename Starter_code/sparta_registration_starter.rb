@@ -11,11 +11,11 @@ class Registration_Selenium
   end
 
   def visit_registration_site
-    
+
   end
 
   def get_current_url
-    rl
+    
   end
 
   def input_first_name_field(text)

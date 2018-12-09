@@ -11,7 +11,6 @@ describe 'Testing the Sparta Global Registration Page' do
     @date_of_birth = '08122009'
     @text = 'Lorem ipsum dolor'
     @file = "C:\\Users\\Tech-W103\\Jaden Smith.docx"
-    @y = @registration_service.get_date_of_birth
   end
 
   it "should land on the registration page" do
