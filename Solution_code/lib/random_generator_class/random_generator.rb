@@ -55,8 +55,12 @@ class Generator
     Faker::Nation.unique.nationality
   end
 
+  def get_birthday
+    Faker::Date.birthday
+  end
+
   def get_user_age
-    Date.today.year - Faker::Date.birthday.year
+    Date.today.year - get_birthday.year
   end
 
   def get_user_phone_number
@@ -85,3 +89,5 @@ class Generator
   end
 
 end
+test = Generator.new
+puts test.get_birthday
