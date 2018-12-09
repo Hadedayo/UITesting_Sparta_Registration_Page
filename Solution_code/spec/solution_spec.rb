@@ -10,7 +10,6 @@ describe 'Testing the Sparta Global Registration Page' do
     @age = @generate.get_user_age
     @date_of_birth = '08122009'
     @text = 'Lorem ipsum dolor'
-    @file = "C:\\Users\\Tech-W103\\Jaden Smith.docx"
     @email = "abinu_siv@hotmail.com"
     @linkedIn = "https://www.linkedin.com/in/abinu-sivabalan-5bb32413b/"
     @file = 'C:\Users\Tech-W106\Abinu.doc'
