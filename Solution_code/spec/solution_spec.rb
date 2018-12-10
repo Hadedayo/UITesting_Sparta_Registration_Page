@@ -106,7 +106,7 @@ describe 'Testing the Sparta Global Registration Page' do
 
   it 'should be able to upload file' do
     @registration_service.input_upload_file(@file)
-    expect(@registration_service.get_input_file).to eq @file
+    expect(@registration_service.get_input_file).not_to eq "No file chosen"
   end
 
   it 'should accept SDET for stream' do
